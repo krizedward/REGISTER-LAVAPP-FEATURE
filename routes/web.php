@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,10 +19,23 @@ Route::get('/', function () {
     return redirect('login');
 });
 
+Route::get('/materi', function () {
+    return view('users.materi');
+});
+
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Auth::routes();
+Route::middleware(['role:admin'])->group(function () {
+    // Tempatkan rute yang hanya bisa diakses oleh admin di sini
+});
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::middleware(['role:user'])->group(function () {
+    // Tempatkan rute yang hanya bisa diakses oleh admin di sini
+    Route::get('/materi', function () { return view('users.materi'); });
+});
+
+Route::middleware(['role:super_admin'])->group(function () {
+    // Tempatkan rute yang hanya bisa diakses oleh admin di sini
+});

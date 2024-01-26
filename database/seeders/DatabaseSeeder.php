@@ -22,14 +22,7 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call([
-            MPeriodsTableSeeder::class,
-            MStudentFeesSeeder::class,
-            TStudentPaymentsTableSeeder::class,
-            TPoTableSeeder::class,
-            TMoTableSeeder::class,
-            TSoTableSeeder::class,
-            LaporanStokBarangTableSeeder::class,
-            LaporanPenjualanTableSeeder::class,
+            UsersTableSeeder::class,
         ]);
 
     }
