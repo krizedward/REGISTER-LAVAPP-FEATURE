@@ -41,20 +41,28 @@
               </div>
             </div>
 
-            <!-- <div class="row mb-3">
-              <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Country Of Origin') }}</label>
+            <div class="row mb-3">
+              <label for="country_of_origin"
+                class="col-md-4 col-form-label text-md-end">{{ __('Country Of Origin') }}</label>
 
               <div class="col-md-6">
-                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email"
-                  value="{{ old('email') }}" required autocomplete="email">
+                <select class="form-control" name="country_of_origin" id="country_of_origin">
+                  @php
+                  $countries = [
+                    'US' => 'United States',
+                    'GB' => 'United Kingdom',
+                    'CA' => 'Canada',
+                    // Tambahkan negara lainnya
+                  ];
+                  @endphp
 
-                @error('email')
-                <span class="invalid-feedback" role="alert">
-                  <strong>{{ $message }}</strong>
-                </span>
-                @enderror
+                  @foreach ($countries as $code => $name)
+                    <option value="{{ $code }}">{{ $name }}</option>
+                  @endforeach
+
+                </select>
               </div>
-            </div> -->
+            </div>
 
             <div class="row mb-3">
               <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>

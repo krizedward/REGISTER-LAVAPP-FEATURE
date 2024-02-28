@@ -1,7 +1,7 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
+<nav class="navbar navbar-expand-md shadow-sm theme-style">
   <div class="container">
     <a class="navbar-brand" href="{{ url('/') }}">
-      {{ config('app.name', 'Laravel') }}
+      <img class="logo" src="/images/logo-white.png" alt="Nusia.id">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -30,10 +30,44 @@
         </li>
         @endif
         @else
+        <li>
+          <a href="{{ route('changeLang', 'en') }}">
+          <div>
+            <img src="/images/en.png" 
+              style="
+                width: 35px;
+                margin: 10px;
+              " alt="en">
+          </div>
+          </a>
+        </li>
+        <li>
+          <a href="{{ route('changeLang', 'id') }}">
+            <div>
+              <img src="/images/id.png" 
+                style="
+                  width: 35px;
+                  margin:10px;
+                " alt="en">
+            </div>
+          </a>
+        </li>
         <li class="nav-item dropdown">
-          <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false" v-pre>
-            {{ Auth::user()->name }}
+          <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" 
+            role="button" data-bs-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false" v-pre style="
+            width: 160px;
+            float: right;
+            text-align: center;
+            height: 50px;
+            padding-top: 15px;
+          ">
+            {{ Auth::user()->name }} - 
+            @if(Auth::user()->role == 'user')
+              Student
+            @else
+              {{ Auth::user()->role }}
+            @endif
           </a>
 
           <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -52,3 +86,9 @@
     </div>
   </div>
 </nav>
+
+<style>
+  .logo {
+    width: 35%;
+  }
+</style>

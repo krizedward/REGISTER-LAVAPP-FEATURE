@@ -19,7 +19,7 @@ class UsersTableSeeder extends Seeder
         //
         User::create([
             'name' => 'super admin',
-            'email' => 'superadmin@nusia.com',
+            'email' => 'superadmin@nusia.id',
             'email_verified_at' => now(),
             'password' => Hash::make('password'), // Anda dapat mengganti 'password' dengan kata sandi yang diinginkan
             'country_of_origin' => 'Indonesia', // Ganti 'Nama Negara' dengan negara asal yang diinginkan atau kosongkan jika tidak ada
@@ -31,7 +31,7 @@ class UsersTableSeeder extends Seeder
 
         User::create([
             'name' => 'admin',
-            'email' => 'admin@nusia.com',
+            'email' => 'admin@nusia.id',
             'email_verified_at' => now(),
             'password' => Hash::make('password'), // Anda dapat mengganti 'password' dengan kata sandi yang diinginkan
             'country_of_origin' => 'Indonesia', // Ganti 'Nama Negara' dengan negara asal yang diinginkan atau kosongkan jika tidak ada
@@ -43,7 +43,7 @@ class UsersTableSeeder extends Seeder
 
         User::create([
             'name' => 'user',
-            'email' => 'user@nusia.com',
+            'email' => 'user@nusia.id',
             'email_verified_at' => now(),
             'password' => Hash::make('password'), // Anda dapat mengganti 'password' dengan kata sandi yang diinginkan
             'country_of_origin' => 'Indonesia', // Ganti 'Nama Negara' dengan negara asal yang diinginkan atau kosongkan jika tidak ada

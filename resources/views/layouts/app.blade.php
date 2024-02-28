@@ -8,7 +8,7 @@
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>{{ config('app.name', 'Laravel') }}</title>
+  <title>Nusia.id</title>
 
   <!-- Fonts -->
   <link rel="dns-prefetch" href="//fonts.bunny.net">
@@ -17,6 +17,7 @@
   <!-- Scripts -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 </head>
 
 <body>
@@ -25,20 +26,25 @@
     <main class="py-4">
       @yield('content')
     </main>
-    <footer class="bg-body-tertiary text-center text-lg-start">
-      <!-- Copyright -->
-      <div class="text-center p-3" style="
-            background-color: rgba(0, 0, 0);
-            color: white;
-            position: fixed;
-            width: 100%;
-            bottom: 0;">
-        © 2024 Copyright: Edward Kristian Mangare, S.Kom
+    <!-- <footer class="bg-body-tertiary text-center text-lg-start">
+      <div class="text-center p-3 theme-style" style="
+        position: fixed;
+        width: 100%;
+        bottom: 0;">
+          © 2021 - 2024 Copyright: Nusantara Indonesia (Nusia.id)
       </div>
-      <!-- Copyright -->
-    </footer>
+    </footer> -->
   </div>
 
 </body>
-
+<style>
+  .navbar-brand, .nav-link, #navbarDropdown {
+    color: white !important;
+  }
+  
+  .theme-style {
+    background-color: #4475DB; 
+    color: #FFFFFF;
+  }
+</style>
 </html>
