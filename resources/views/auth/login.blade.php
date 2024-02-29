@@ -141,7 +141,7 @@
     height: 100%;
     background-size: cover;
     background-position: center;
-    background-color: red;
+    background-color: white;
     z-index: 9999; /* Pastikan gambar di atas elemen lain */
     opacity: 1; /* Tetapkan opasitas awal */
     transition: opacity 2s ease; /* Animasi transisi opasitas */
@@ -150,7 +150,7 @@
   /* Animasi fade out */
   .fullscreen-image.fade-out {
     opacity: 0; /* Atur opasitas menjadi 0 */
-    z-index: 0;
+    z-index: -9999;
   }
 
   .fullscreen-video {
@@ -180,7 +180,7 @@
         
         // Setel status bahwa elemen fullscreen telah ditampilkan
         localStorage.setItem('fullscreenShown', 'true');
-      }, 11211);
+      }, 8000);
     }
   });
 </script>

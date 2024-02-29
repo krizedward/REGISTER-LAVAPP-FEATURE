@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
-@section('contents')
+@section('content')
 <div class="container">
   @if (Auth::user()->role == 'admin')
-  <ul>
+  <!-- <ul>
     <li>total user</li>
     <li>user yang mendaftar hari ini</li>
-  </ul>
+  </ul> -->
   <div class="row justify-content-center mt-4">
     <div class="col-md-8">
       <div class="accordion" id="accordionExample">
@@ -53,25 +53,12 @@
   @if (Auth::user()->role == 'user')
   <div class="row justify-content-center">
     <div class="col-md-10 mb-4">
-      <div class="card">
-        <div class="card-header theme-style">Dashboard</div>
-        <div class="card-body">
-          @if (session('status'))
-          <div class="alert alert-success" role="alert">
-            {{ session('status') }}
-          </div>
-          @endif
-          <!-- Welcome, Now You Are Nusian !<br> -->
-          <!-- Thank You For Choose Nusia To Learning Bahasa. -->
-          <p>
-            @lang('home.welcome.title')
-          </p>
-          <p>
-            @lang('home.welcome.content')
-          </p>
-          <br>
-        </div>
-      </div>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/home">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Topic Learn {{ $level }}</li>
+        </ol>
+      </nav>
     </div>
   </div>
   <!-- dashboard -->
@@ -111,7 +98,7 @@
       </div>
     </div>
 
-    <div class="col-md-7 mb-4">
+    <!-- <div class="col-md-7 mb-4">
       <div class="card">
         <div class="card-body">
           <ul class="nav nav-tabs" role="tablist">
@@ -142,6 +129,24 @@
               @lang('home.test.topic-3')
             </div>
           </div>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="col-md-7 mb-4">
+      <div class="card">
+        <div class="card-body">
+          @if ($level == 'Easy')
+            @include('topik.learn-easy')
+          @endif
+
+          @if ($level == 'Medium')
+            @include('topik.learn-medium')
+          @endif
+
+          @if ($level == 'Expert')
+            @include('topik.learn-expert')
+          @endif
         </div>
       </div>
     </div>
@@ -176,82 +181,4 @@
     color: white !important; /* Mengubah teks menjadi putih */
   }
 </style>
-@endsection
-
-
-@section('content')
-<div id="home">
-@if (Auth::user()->role == 'admin')
-  <div class="container">
-    <div class="row justify-content-center mt-4">
-      <div class="col-md-10 mb-4">
-        <div class="accordion" id="accordionExample">
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="headingOne">
-              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                aria-expanded="true" aria-controls="collapseOne">
-                Total User
-              </button>
-            </h2>
-            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-              data-bs-parent="#accordionExample">
-              <div class="accordion-body">
-                <table class="table table-striped">
-                  <thead>
-                    <tr>
-                      <th>Username</th>
-                      <th>Password</th>
-                      <th>Role</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>admin@nusia.id</td>
-                      <td>password</td>
-                      <td>admin</td>
-                    </tr>
-                    <tr>
-                      <td>user@nusia.id</td>
-                      <td>password</td>
-                      <td>user</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- col -->
-      <div class="col-md-10 mb-4">
-        <div class="card">
-          <div class="card-body">
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th>Easy</th>
-                <th>Medium</th>
-                <th>Expert</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-              </tr>
-            </tbody>
-          </table>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-@endif
-
-@if (Auth::user()->role == 'user')
-  @include('topik.index')
-  <div style="margin: 100px"></div>
-@endif
-</div>
 @endsection

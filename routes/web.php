@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\RegisterNewAccountController;
+use App\Http\Controllers\TopicLearnController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,3 +60,8 @@ Route::get('/change', function () {
 // 2.1 daftar
 // 2.2 login
 // 3. utama
+
+Route::get('/register-create', [RegisterNewAccountController::class, 'create'])->name('register.create');
+
+// topic learn TopicLearnController
+Route::get('/topic/{level}/learn', [TopicLearnController::class, 'detail'])->name('topic.detail');

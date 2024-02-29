@@ -47,19 +47,11 @@
 
               <div class="col-md-6">
                 <select class="form-control" name="country_of_origin" id="country_of_origin">
-                  @php
-                  $countries = [
-                    'US' => 'United States',
-                    'GB' => 'United Kingdom',
-                    'CA' => 'Canada',
-                    // Tambahkan negara lainnya
-                  ];
-                  @endphp
-
-                  @foreach ($countries as $code => $name)
-                    <option value="{{ $code }}">{{ $name }}</option>
+                  @foreach ($countries as $country)
+                    <option value="{{ $country['name'] }}">
+                      {{ $country['name'] }}
+                    </option>
                   @endforeach
-
                 </select>
               </div>
             </div>
