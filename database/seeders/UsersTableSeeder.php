@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Student;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -51,6 +52,10 @@ class UsersTableSeeder extends Seeder
             // 'remember_token' => Str::random(10),
             // 'created_at' => now(),
             // 'updated_at' => now(),
+        ]);
+
+        Student::create([
+            'user_id' => 3,
         ]);
     }
 }

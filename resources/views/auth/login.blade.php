@@ -16,9 +16,12 @@
 </div> -->
 
 <div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-8">
-      <div class="accordion" id="accordionExample">
+  <div class="row justify-content-center mt-2">
+    <div class="col-md-4">
+      <img style="padding-left: 35px;" src="/images/login.png" alt="login-icon">
+    </div>
+    <div class="col-md-6">
+      <div class="accordion mb-3" id="accordionExample">
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingOne">
             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
@@ -54,14 +57,9 @@
           </div>
         </div>
       </div>
-    </div>
 
-  </div>
-  <br>
-  <div class="row justify-content-center">
-    <div class="col-md-8">
       <div class="card">
-        <div class="card-header">{{ __('Login') }}</div>
+        <div class="card-header theme-style">{{ __('Login') }}</div>
 
         <div class="card-body">
           <form method="POST" action="{{ route('login') }}">
@@ -127,7 +125,9 @@
         </div>
       </div>
     </div>
+
   </div>
+  <br>
 </div>
 
 <style>

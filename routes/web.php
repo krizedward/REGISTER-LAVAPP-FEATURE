@@ -65,3 +65,5 @@ Route::get('/register-create', [RegisterNewAccountController::class, 'create'])-
 
 // topic learn TopicLearnController
 Route::get('/topic/{level}/learn', [TopicLearnController::class, 'detail'])->name('topic.detail');
+// easy
+Route::get('/topic/1/easy/learn', [TopicLearnController::class, 'topic01easy'])->name('topic.1.easy');

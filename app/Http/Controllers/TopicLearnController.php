@@ -21,4 +21,9 @@ class TopicLearnController extends Controller
         }
         // return view('topik.detail');
     }
+
+    public function topic01easy()
+    {
+        return view('topik.detail-01-easy');
+    }
 }

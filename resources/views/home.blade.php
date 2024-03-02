@@ -250,7 +250,7 @@
 @endif
 
 @if (Auth::user()->role == 'user')
-  @include('topik.index')
+  @include('tingkat.index')
   <div style="margin: 100px"></div>
 @endif
 </div>

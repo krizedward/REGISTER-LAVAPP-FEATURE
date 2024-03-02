@@ -56,7 +56,7 @@
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="/home">Home</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Topic Learn {{ $level }}</li>
+          <li class="breadcrumb-item active" aria-current="page">Tingkat {{ $level }}</li>
         </ol>
       </nav>
     </div>
@@ -134,10 +134,27 @@
     </div> -->
 
     <div class="col-md-7 mb-4">
+      <div class="card mb-4">
+        <div class="card-header theme-style">Selamat Datang</div>
+        <div class="card-body">
+          @if (session('status'))
+          <div class="alert alert-success" role="alert">
+            {{ session('status') }}
+          </div>
+          @endif
+          <!-- Welcome, Now You Are Nusian !<br> -->
+          <!-- Thank You For Choose Nusia To Learning Bahasa. -->
+          <p>
+            Mau Belajar Topik Yang Mana ?
+            Silahkan pilih Topik Di Bawah Ini!
+          </p>
+        </div>
+      </div>
+
       <div class="card">
         <div class="card-body">
           @if ($level == 'Easy')
-            @include('topik.learn-easy')
+            @include('topik.button-easy-index')
           @endif
 
           @if ($level == 'Medium')

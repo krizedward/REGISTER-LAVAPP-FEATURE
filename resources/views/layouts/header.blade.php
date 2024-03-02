@@ -1,7 +1,8 @@
 <nav class="navbar navbar-expand-md shadow-sm theme-style">
   <div class="container">
     <a class="navbar-brand" href="{{ url('/') }}">
-      <img class="logo" src="/images/logo-white.png" alt="Nusia.id">
+      <img class="logo" src="/images/logo-nusia.png" alt="Nusia.id">
+      <!-- <img class="logo" src="/images/logo-white.png" alt="Nusia.id"> -->
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -89,6 +90,6 @@
 
 <style>
   .logo {
-    width: 35%;
+    width: 15%;
   }
 </style>
