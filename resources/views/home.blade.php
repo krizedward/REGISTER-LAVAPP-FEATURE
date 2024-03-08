@@ -250,7 +250,7 @@
 @endif
 
 @if (Auth::user()->role == 'user')
-  @include('tingkat.index')
+  @include('utama.index')
   <div style="margin: 100px"></div>
 @endif
 </div>

@@ -66,4 +66,14 @@ Route::get('/register-create', [RegisterNewAccountController::class, 'create'])-
 // topic learn TopicLearnController
 Route::get('/topic/{level}/learn', [TopicLearnController::class, 'detail'])->name('topic.detail');
 // easy
-Route::get('/topic/1/easy/learn', [TopicLearnController::class, 'topic01easy'])->name('topic.1.easy');
+// Route::get('/topic/1/easy/learn', [TopicLearnController::class, 'topic01easy'])->name('topic.1.easy');
+Route::get('/topik/1/tingkat-mudah', function () {
+    return view('topik.01.tingkat-mudah'); 
+});
+Route::get('/topik/1/tingkat-menengah', function () {
+    return view('topik.01.tingkat-menengah'); 
+});
+
+Route::get('/topik/1/tingkat-mahir', function () {
+    return view('topik.01.tingkat-mahir'); 
+});

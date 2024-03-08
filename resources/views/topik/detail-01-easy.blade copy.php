@@ -52,15 +52,12 @@
 
   @if (Auth::user()->role == 'user')
   <div class="row justify-content-center">
-    <div class="col-md-10 mb-2">
+    <div class="col-md-10 mb-4">
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item">
-            <a href="/home">Home</a>
-          </li>
-          <li class="breadcrumb-item active" aria-current="page">
-            Topik 01
-          </li>
+          <li class="breadcrumb-item"><a href="/home">Home</a></li>
+          <li class="breadcrumb-item"><a href="/topic/easy/learn">Tingkat Easy</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Topik 01</li>
         </ol>
       </nav>
     </div>
@@ -68,8 +65,75 @@
   <!-- dashboard -->
 
   <div class="row justify-content-center">
+    <!-- <div class="col-md-3 mb-4">
+      <div class="card">
+        <div class="card-header theme-style">Procedure</div>
+        <div class="card-body">
+          <img style="
+            width: 90%;
+            margin-bottom: 10px;
+          " src="/images/topic.png">
+          <p style="
+            font-style: normal; 
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 150%;
+            color: #1E1E1E;">
+            Prosedur pengerjaan:
+          <ol style="
+            font-style: normal; 
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 150%;
+            color: #1E1E1E;">
+            <li>Tonton Video Percakapan</li>
+            <li>Kerjakan Latihan Menyimak-mengulang</li>
+            <li>Nialai Performa menyimak-mengulang Anda secara mandiri</li>
+            <li>Baca Pembahasan materi teks dialog dan catatan budaya</li>
+            <li>Kerjakan latihan berbicara (bermain peran)</li>
+            <li>Nilai performa berbicara Anda secara mandiri</li>
+          </ol>
+          </p>
+        </div>
+      </div>
+    </div> -->
 
-    <div class="col-md-10 mb-2">
+    <!-- <div class="col-md-7 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item" role="presentation" style="color: black !important;">
+              <a class="nav-link active" id="simple-tab-0" data-bs-toggle="tab" href="#simple-tabpanel-0" role="tab" aria-controls="simple-tabpanel-0" aria-selected="true" style="color: black !important;">
+                @lang('home.test.topic-1')
+              </a>
+            </li>
+            <li class="nav-item" role="presentation" style="color: black !important;">
+              <a class="nav-link" id="simple-tab-1" data-bs-toggle="tab" href="#simple-tabpanel-1" role="tab" aria-controls="simple-tabpanel-1" aria-selected="false" style="color: black !important;">
+                @lang('home.test.topic-2')
+              </a>
+            </li>
+            <li class="nav-item" role="presentation" style="color: black !important;">
+              <a class="nav-link" id="simple-tab-2" data-bs-toggle="tab" href="#simple-tabpanel-2" role="tab" aria-controls="simple-tabpanel-2" aria-selected="false" style="color: black !important;">
+                @lang('home.test.topic-3')
+              </a>
+            </li>
+          </ul>
+          <div class="tab-content pt-3" id="tab-content" style="margin-bottom: 10px; min-height: 500px;">
+            <div class="tab-pane active" id="simple-tabpanel-0" role="tabpanel" aria-labelledby="simple-tab-0">
+              @include('topik.topik-1')
+            </div>
+            <div class="tab-pane" id="simple-tabpanel-1" role="tabpanel" aria-labelledby="simple-tab-1">
+              @lang('home.test.topic-2')
+            </div>
+            <div class="tab-pane" id="simple-tabpanel-2" role="tabpanel" aria-labelledby="simple-tab-2">
+              @lang('home.test.topic-3')
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="col-md-10 mb-4">
       <div class="card mb-4">
         <div class="card-header theme-style">Topik 01 : Basa Basi Untuk Bertanya Kabar</div>
         <div class="card-body">
@@ -85,21 +149,9 @@
           </p>
           <div class="container mb-5">
             <ul class="list-group list-group-horizontal justify-content-center text-center">
-              <li class="list-group-item flex-fill step-item theme-style">
-                <a href="#" style="color: white; text-decoration: none;">
-                  Tingkat Dasar
-                </a>  
-              </li>
-              <li class="list-group-item flex-fill step-item">
-                <a href="#" style="color: black; text-decoration: none;">
-                  Tingkat Dasar
-                </a>
-              </li>
-              <li class="list-group-item flex-fill step-item">
-                <a href="#" style="color: black; text-decoration: none;">
-                  Tingkat Mahir
-                </a>
-              </li>
+              <li class="list-group-item flex-fill step-item theme-style">Tingkat Dasar</li>
+              <li class="list-group-item flex-fill step-item">Tingkat Menengah</li>
+              <li class="list-group-item flex-fill step-item">Tingkat Mahir</li>
               <!-- <li class="list-group-item flex-fill step-item">Langkah 4</li> -->
             </ul>
           </div>
@@ -132,11 +184,30 @@
                 @include('topik.learn-easy')
               </div>
               <div class="tab-pane" id="simple-tabpanel-1" role="tabpanel" aria-labelledby="simple-tab-1">
+                <!-- <ol>
+                  <li>klik tombol ini</li>
+                  <li>dengarkan rekaman audionya</li>
+                  <li>ulangi, lalu rekam dengan menekan tombol ini</li>
+                  <li>bandingkan rekaman dengan audio asli</li>
+                  <li>jika ada perbedaan, silahkan ulangi lagi dengan menentukan tombol ini.</li>
+                  <li>setelah selesai, silahkan lanjut kehalaman berikutnya</li>
+                </ol> -->
                 @include('topik.learn-easy-video')
+                <!-- <span>sebelum menonton, ada instruksi yang bisa diterjemahkan ke dalam bahasa inggris Youtube</span>
+                <br>
+                <br>
+                <span>sebelum menonton, ada instruksi yang bisa diterjemahkan ke dalam bahasa inggris dengarlah
+                  simakan dengan tempo normal di bawah ini. lalu ulang via nearpod!
+                </span> -->
               </div>
               <div class="tab-pane" id="simple-tabpanel-2" role="tabpanel" aria-labelledby="simple-tab-2">
                 <!-- <p>Mengerjakan soal latihan mnenyimak via Quizizz!</p> -->
                 @include('topik.learn-easy-quiz')
+                <!-- <p>Rating Bahan Ajar</p>
+                <span>
+                  Bagaimana menurutmu tentang materi ini?
+                  (bintang atau yang merepresentasikan itu)
+                </span> -->
               </div>
             </div>
           </div>
