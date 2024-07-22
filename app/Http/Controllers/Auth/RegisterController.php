@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\StudentTopic;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -64,11 +65,26 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'country_of_origin' => $data['country_of_origin'],
         ]);
+
+        $tingkatTopik = ['tingkat dasar','tingkat menengah','tingkat mahir'];
+
+        foreach ($tingkatTopik as $tingkat) {
+            StudentTopic::create([
+                'user_id' => $user->id, // Gunakan ID dari user yang baru dibuat
+                'kelompok_topik' => 'topik 1', // Ini bisa dinamis berdasarkan input atau tetap statis, tergantung kebutuhanmu
+                'nama_topik' => 'belum ada',
+                'tingkat_topik' => $tingkat, // Gunakan variabel $tingkat dari perulangan
+                'persen_topik' => 0,
+            ]);
+        }
+
+        return $user;
     }
 }

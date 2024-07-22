@@ -25,9 +25,9 @@
     >
   </iframe>
 
-  <button class="button-done" onclick="doneAlert()">
+  <!-- <button class="button-done" onclick="doneAlert()">
     Mark as done
-  </button>
+  </button> -->
 </div>
 <!-- html -->
 

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RegisterNewAccountController;
 use App\Http\Controllers\TopicLearnController;
+use App\Http\Controllers\StudentTopicController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,8 +40,12 @@ Route::middleware(['role:super_admin'])->group(function () {
     // Tempatkan rute yang hanya bisa diakses oleh admin di sini
 });
 
+// StudentTopicController
+Route::post('/student-topic/{topik}/{tingkat}/save', [StudentTopicController::class, 'setTopicStudent']);
+Route::get('/student-topic', [StudentTopicController::class, 'getTopicStudent']);
+
 Route::get('/materi', function () { return view('users.materi'); });
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'getDashboard'])->name('home');
 Route::get('/topic', function () {
     return view('topik.index');
 });
@@ -76,4 +81,4 @@ Route::get('/topik/1/tingkat-menengah', function () {
 
 Route::get('/topik/1/tingkat-mahir', function () {
     return view('topik.01.tingkat-mahir'); 
-});
+}); 

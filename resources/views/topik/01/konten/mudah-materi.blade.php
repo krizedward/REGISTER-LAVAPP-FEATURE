@@ -96,9 +96,12 @@
     </iframe>
   </div>
 
-  <button class="button-done" onclick="doneAlert()">
-    Mark as done
-  </button>
+  <!-- <form action="/student-topic/topik 1/tingkat dasar/save" method="post">
+    @csrf
+    <button type="submit" class="button-done" onclick="doneAlert()" id="simple-tabpanel-1">
+      Mark as done
+    </button>
+  </form> -->
 
   <!-- <a href="#" class="btn btn-danger stretched-link" onclick="sweetAlert()">See Profile</a> -->
 </div>

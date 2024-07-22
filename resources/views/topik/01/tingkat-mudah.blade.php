@@ -77,18 +77,46 @@
                   Latihan Menyimak
                 </a>
               </li>
+              <li class="nav-item" role="presentation" style="color: black !important;">
+                <a class="nav-link" id="simple-tab-3" data-bs-toggle="tab" href="#simple-tabpanel-3" role="tab"
+                  aria-controls="simple-tabpanel-3" aria-selected="false" style="color: black !important;">
+                  Rating
+                </a>
+              </li>
             </ul>
             <div class="tab-content pt-3" id="tab-content" style="margin-bottom: 10px; min-height: 500px;">
               <div class="tab-pane active" id="simple-tabpanel-0" role="tabpanel" aria-labelledby="simple-tab-0">
                 <!-- <p>menggunakan nearpod</p> -->
                 @include('topik.01.konten.mudah-materi')
+                <!-- <form action="/student-topic/topik 1/tingkat dasar/save" method="post">
+                  @csrf
+                  <button type="submit" class="button-done" onclick="doneAlert()" id="mark-as-done">
+                    Mark as done
+                  </button>
+                </form> -->
+
+                <button type="button" class="button-done" onclick="changeTab1()" aria-controls="simple-tabpanel-1">
+                  Mark as done
+                </button>
               </div>
               <div class="tab-pane" id="simple-tabpanel-1" role="tabpanel" aria-labelledby="simple-tab-1">
                 @include('topik.01.konten.mudah-simak')
+                <button type="button" class="button-done" onclick="changeTab2()">
+                  Mark as done
+                </button>
               </div>
               <div class="tab-pane" id="simple-tabpanel-2" role="tabpanel" aria-labelledby="simple-tab-2">
                 <!-- <p>Mengerjakan soal latihan mnenyimak via Quizizz!</p> -->
                 @include('topik.01.konten.mudah-latihan')
+                <button type="button" class="button-done" onclick="changeTab3()">
+                  Mark as done
+                </button>
+              </div>
+              <div class="tab-pane" id="simple-tabpanel-3" role="tabpanel" aria-labelledby="simple-tab-3">
+                Rating reivew
+                <button type="button" class="button-done" onclick="changeTab3()">
+                  Mark as done
+                </button>
               </div>
             </div>
           </div>
@@ -99,6 +127,54 @@
 
     </div>
     <!-- Procedure -->
+
+    <script>
+      function changeTab1() {
+        // Nonaktifkan tab dan panel yang aktif
+        $('.nav-link.active').removeClass('active');
+        $('.tab-pane.active').removeClass('active show');
+        
+        // Aktifkan tab dan panel yang diinginkan
+        $('#simple-tab-1').addClass('active');
+        $('#simple-tabpanel-1').addClass('active show');
+      }
+
+      function changeTab2() {
+        // Nonaktifkan tab dan panel yang aktif
+        $('.nav-link.active').removeClass('active');
+        $('.tab-pane.active').removeClass('active show');
+        
+        // Aktifkan tab dan panel yang diinginkan
+        $('#simple-tab-2').addClass('active');
+        $('#simple-tabpanel-2').addClass('active show');
+
+        // AJAX call ke server untuk memperbarui progres
+        // $.ajax({
+        //   url: '/set-topic-student', // Pastikan URL sesuai dengan route yang Anda buat
+        //   type: 'POST',
+        //   data: {
+        //     _token: $('meta[name="csrf-token"]').attr('content'), // CSRF token
+        //     tingkat: 'tingkat mahir' // Kirim tingkat sebagai contoh
+        //   },
+        //   success: function(response) {
+        //     console.log(response.success);
+        //   },
+        //   error: function(error) {
+        //     console.log(error.responseJSON.error);
+        //   }
+        // });
+      }
+
+      function changeTab3() {
+        // Nonaktifkan tab dan panel yang aktif
+        $('.nav-link.active').removeClass('active');
+        $('.tab-pane.active').removeClass('active show');
+        
+        // Aktifkan tab dan panel yang diinginkan
+        $('#simple-tab-3').addClass('active');
+        $('#simple-tabpanel-3').addClass('active show');
+      }
+    </script>
 
     <!-- <div class="row justify-content-center">
     <div class="col-8 mt-5">

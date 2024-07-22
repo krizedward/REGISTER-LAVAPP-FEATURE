@@ -27,7 +27,7 @@
               </div>
             </div>
             <div class="col">
-              <p>
+              <p class="title">
                 @lang('home.welcome.title')
               </p>
               <p>
@@ -43,43 +43,24 @@
               <!-- <div class="container">
                 <canvas id="myPieChart"></canvas>
               </div> -->
+              
               <div class="card" style="border: none;">
                 <div class="card-body">
-                  <p class="project-name">Topik 1 : Tingkat Dasar</p>
-                  <div class="progress">
-                    <div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="20"
-                      aria-valuemin="0" aria-valuemax="100"></div>
+                @foreach ($topik as $data_topik)
+                  @php
+                    $progressClass = 'bg-success'; // Default ke hijau untuk 100%
+                    if ($data_topik['persen_topik'] < 100) {
+                      $progressClass = 'bg-warning'; // Jika kurang dari 100%, gunakan warna kuning
+                    }
+                    if ($data_topik['persen_topik'] < 50) {
+                      $progressClass = 'bg-danger'; // Jika kurang dari 50%, gunakan warna merah
+                    }
+                  @endphp
+                  <p class="project-name">{{ $data_topik['kelompok_topik'] }} : {{ $data_topik['tingkat_topik'] }}</p>
+                  <div class="progress" style="margin-bottom: 10px;">
+                    <div class="progress-bar {{ $progressClass }}" role="progressbar" style="width: {{ $data_topik['persen_topik'] }}%" aria-valuenow="{{ $data_topik['persen_topik'] }}" aria-valuemin="0" aria-valuemax="100">{{ $data_topik['persen_topik'] }}%</div>
                   </div>
-
-                  <p class="project-name">Topik 1 : Tingkat Menengah</p>
-                  <div class="progress">
-                    <div class="progress-bar bg-warning" role="progressbar" style="width: 40%" aria-valuenow="40"
-                      aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-
-                  <p class="project-name">Topik 1 : Tingkat Mahir</p>
-                  <div class="progress">
-                    <div class="progress-bar bg-info" role="progressbar" style="width: 60%" aria-valuenow="60"
-                      aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-
-                  <p class="project-name">Topik 2 : Tingkat Dasar</p>
-                  <div class="progress">
-                    <div class="progress-bar bg-primary" role="progressbar" style="width: 80%" aria-valuenow="80"
-                      aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-
-                  <p class="project-name">Topik 2 : Tingkat Menengah</p>
-                  <div class="progress">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100"
-                      aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-
-                  <p class="project-name">Topik 2 : Tingkat Mahir</p>
-                  <div class="progress">
-                    <div class="progress-bar bg-danger" role="progressbar" style="width: 10%" aria-valuenow="100"
-                      aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
+                @endforeach
                 </div>
               </div>
 
@@ -169,17 +150,25 @@
 </div>
 
 <style>
-.orange {
-  background: #ef8f1a;
-}
+  .title {
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30px;
+  }
+</style>
 
-.grey {
-  background: #d9d8da;
-}
+<style>
+  .orange {
+    background: #ef8f1a;
+  }
 
-.purple {
-  background: #be0eee;
-}
+  .grey {
+    background: #d9d8da;
+  }
+
+  .purple {
+    background: #be0eee;
+  }
 </style>
 <!-- warna baru -->
 
